@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">HW1</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="mysoundsarray">
+        <item>Sound 1</item>
+        <item>Sound 2</item>
+        <item>Sound 3</item>
+        <item>Sound 4</item>
+        <item>Sound 5</item>
+        <item>Sound 6</item>
+    </string-array >
+</resources>
