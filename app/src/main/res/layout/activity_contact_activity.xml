@@ -86,7 +86,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button_cancel_contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_ok_contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
