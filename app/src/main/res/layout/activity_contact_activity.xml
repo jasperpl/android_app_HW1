@@ -39,20 +39,11 @@
             android:onClick="onRadioButtonClicked"
             android:text="Jan Kowalski" />
         <RadioButton
-            android:id="@+id/contact2"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
-            android:checked="false"
-            android:onClick="onRadioButtonClicked"
-            android:text="Michał Kowalski" />
-        <RadioButton
             android:id="@+id/contact3"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="65dp"
             android:checked="false"
             android:onClick="onRadioButtonClicked"
             android:text="Malina Kowalska" />
@@ -61,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="65dp"
             android:checked="false"
             android:onClick="onRadioButtonClicked"
             android:text="Maciej Nowak" />
@@ -70,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="65dp"
             android:checked="false"
             android:onClick="onRadioButtonClicked"
             android:text="Andrzej Duda" />
@@ -79,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="65dp"
             android:checked="false"
             android:onClick="onRadioButtonClicked"
             android:text="Wojciech Suchodolski" />

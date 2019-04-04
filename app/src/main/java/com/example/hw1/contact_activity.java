@@ -54,15 +54,6 @@ public class contact_activity extends AppCompatActivity {
                    image= R.drawable.avatar_1;
                     }
                     break;
-            case R.id.contact2:
-                if (checked) {
-                    RadioButton text = (RadioButton) findViewById(R.id.contact2);
-                    value = text.getText().toString();
-                    TextView txV = (TextView) findViewById(R.id.change_contact);
-                    txV.setText(value);
-                    image= R.drawable.avatar_2;
-                }
-                    break;
             case R.id.contact3:
                 if (checked) {
                     RadioButton text = (RadioButton) findViewById(R.id.contact3);
@@ -87,7 +78,7 @@ public class contact_activity extends AppCompatActivity {
                     value = text.getText().toString();
                     TextView txV = (TextView) findViewById(R.id.change_contact);
                     txV.setText(value);
-                    image= R.drawable.avatar_5;
+                    image= R.drawable.avatar_2;
                 }
                 break;
             case R.id.contact6:
