@@ -1,6 +1,8 @@
 package com.example.hw1;
 
 import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,19 +12,33 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
     private Button button_contact;
     private Button button_sound;
+    TextView text;
+    ImageView image_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String savedExtra = getIntent().getStringExtra("contact_text");
+        int savedExtraImage=getIntent().getIntExtra("image", 0);;
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Button button_contact= findViewById(R.id.button_contact);
         Button button_sound= findViewById(R.id.button_sound);
+        image_view=findViewById(R.id.contact_avatar);
         FloatingActionButton fab = findViewById(R.id.play);
+        text = findViewById(R.id.this_contact);
+        if(getIntent().getExtras()!=null) {
+            text.setText(savedExtra);
+            image_view.setImageResource(savedExtraImage);
+        }
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
