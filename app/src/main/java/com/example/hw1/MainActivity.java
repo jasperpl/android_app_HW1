@@ -1,7 +1,9 @@
 package com.example.hw1;
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,14 +22,38 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
     private Button button_contact;
     private Button button_sound;
+    private MediaPlayer backgroundPlayer;
+    private MediaPlayer buttonPlayer;
     TextView text;
     ImageView image_view;
+    String savedExtra;
+    int savedExtraImage;
+    int on_off;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String savedExtra = getIntent().getStringExtra("contact_text");
-        int savedExtraImage=getIntent().getIntExtra("image", 0);;
+        final MediaPlayer sound;
+        savedExtra = getIntent().getStringExtra("contact_text");
+        savedExtraImage=getIntent().getIntExtra("image", 0);;
+        int selected_sound=getIntent().getIntExtra("selected_sound",0);
+        switch (selected_sound)
+        {
+            case 0:
+                sound =  MediaPlayer.create(this, R.raw.track01);
+                break;
+            case 1:
+                sound =  MediaPlayer.create(this, R.raw.track02);
+                break;
+            case 3:
+                sound =  MediaPlayer.create(this, R.raw.track03);
+                break;
+            case 4:
+                sound =  MediaPlayer.create(this, R.raw.track04);
+                break;
+                default:
+                    sound =  MediaPlayer.create(this, R.raw.track01);
+        }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Button button_contact= findViewById(R.id.button_contact);
@@ -42,19 +68,25 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                on_off^=1;
+                if(on_off==1) {
+                    sound.start();
+                }
+                else{
+                    sound.pause();}
             }
         });
         button_contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sound.stop();
                 openActivity_contact();
             }
         });
         button_sound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sound.stop();
                 openActivity_sound();
             }
         });
@@ -65,9 +97,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openActivity_sound() {
         Intent intent = new Intent(this, sound_activity.class);
+        intent.putExtra("contact_text",savedExtra);
+        intent.putExtra("image",savedExtraImage);
         startActivity(intent);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
