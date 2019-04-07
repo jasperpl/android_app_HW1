@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final MediaPlayer sound;
+        text = findViewById(R.id.this_contact);
         savedExtra = getIntent().getStringExtra("contact_text");
         savedExtraImage=getIntent().getIntExtra("image", 0);;
         int selected_sound=getIntent().getIntExtra("selected_sound",0);
@@ -77,8 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 this_image=R.drawable.avatar_5;
                 break;
                 default:
-                    this_image=R.drawable.avatar_1;
-                    savedExtra="Jan Kowalski";
+//                    this_image=R.drawable.avatar_1;
         }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -86,9 +86,9 @@ public class MainActivity extends AppCompatActivity {
         Button button_sound= findViewById(R.id.button_sound);
         image_view=findViewById(R.id.contact_avatar);
         FloatingActionButton fab = findViewById(R.id.play);
-        text = findViewById(R.id.this_contact);
+        if(savedExtra!=null){
             text.setText(savedExtra);
-            image_view.setImageResource(this_image);
+            image_view.setImageResource(this_image);}
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
