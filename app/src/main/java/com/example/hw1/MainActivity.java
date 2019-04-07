@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     String savedExtra;
     int savedExtraImage;
     int on_off;
+    int this_image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,14 +46,39 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 sound =  MediaPlayer.create(this, R.raw.track02);
                 break;
-            case 3:
+            case 2:
                 sound =  MediaPlayer.create(this, R.raw.track03);
                 break;
-            case 4:
+            case 3:
                 sound =  MediaPlayer.create(this, R.raw.track04);
+                break;
+            case 4:
+                sound =  MediaPlayer.create(this, R.raw.track05);
                 break;
                 default:
                     sound =  MediaPlayer.create(this, R.raw.track01);
+        }
+
+        switch (savedExtraImage)
+        {
+            case 1:
+                this_image=R.drawable.avatar_1;
+                break;
+            case 2:
+                this_image=R.drawable.avatar_2;
+                break;
+            case 3:
+                this_image=R.drawable.avatar_3;
+                break;
+            case 4:
+                this_image=R.drawable.avatar_4;
+                break;
+            case 5:
+                this_image=R.drawable.avatar_5;
+                break;
+                default:
+                    this_image=R.drawable.avatar_1;
+                    savedExtra="Jan Kowalski";
         }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -61,10 +87,8 @@ public class MainActivity extends AppCompatActivity {
         image_view=findViewById(R.id.contact_avatar);
         FloatingActionButton fab = findViewById(R.id.play);
         text = findViewById(R.id.this_contact);
-        if(getIntent().getExtras()!=null) {
             text.setText(savedExtra);
-            image_view.setImageResource(savedExtraImage);
-        }
+            image_view.setImageResource(this_image);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,14 +103,16 @@ public class MainActivity extends AppCompatActivity {
         button_contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sound.stop();
+                on_off=0;
+                sound.pause();
                 openActivity_contact();
             }
         });
         button_sound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sound.stop();
+                on_off=0;
+                sound.pause();
                 openActivity_sound();
             }
         });

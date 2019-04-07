@@ -11,7 +11,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class contact_activity extends AppCompatActivity {
+    Random generator= new Random();
     private Button button_ok_contact;
     private Button button_cancel_contact;
     String value;
@@ -51,7 +54,7 @@ public class contact_activity extends AppCompatActivity {
                     value = text.getText().toString();
                     TextView txV = (TextView) findViewById(R.id.change_contact);
                     txV.setText(value);
-                   image= R.drawable.avatar_1;
+                   image=generator.nextInt(5)+1;
                     }
                     break;
             case R.id.contact3:
@@ -60,7 +63,7 @@ public class contact_activity extends AppCompatActivity {
                     value = text.getText().toString();
                     TextView txV = (TextView) findViewById(R.id.change_contact);
                     txV.setText(value);
-                    image= R.drawable.avatar_3;
+                    image= generator.nextInt(5)+1;
                 }
                 break;
             case R.id.contact4:
@@ -69,7 +72,7 @@ public class contact_activity extends AppCompatActivity {
                     value = text.getText().toString();
                     TextView txV = (TextView) findViewById(R.id.change_contact);
                     txV.setText(value);
-                    image= R.drawable.avatar_4;
+                    image= generator.nextInt(5)+1;
                 }
                 break;
             case R.id.contact5:
@@ -78,7 +81,7 @@ public class contact_activity extends AppCompatActivity {
                     value = text.getText().toString();
                     TextView txV = (TextView) findViewById(R.id.change_contact);
                     txV.setText(value);
-                    image= R.drawable.avatar_2;
+                    image= generator.nextInt(5)+1;
                 }
                 break;
             case R.id.contact6:
@@ -87,7 +90,7 @@ public class contact_activity extends AppCompatActivity {
                     value = text.getText().toString();
                     TextView txV = (TextView) findViewById(R.id.change_contact);
                     txV.setText(value);
-                    image= R.drawable.avatar_5;
+                    image= generator.nextInt(5)+1;
                 }
                 break;
         }
