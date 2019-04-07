@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 this_image=R.drawable.avatar_5;
                 break;
                 default:
-//                    this_image=R.drawable.avatar_1;
         }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
