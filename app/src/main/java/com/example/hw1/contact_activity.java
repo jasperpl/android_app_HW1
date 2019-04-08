@@ -29,11 +29,11 @@ public class contact_activity extends AppCompatActivity {
         button_ok_contact.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(view.getContext(), MainActivity.class);
+            Intent intent = new Intent();
             intent.putExtra("contact_text", value);
             intent.putExtra("image",image);
-            contact_activity.this.finish();
-            startActivity(intent);
+            setResult(RESULT_OK,intent);
+            finish();
         }
     });
         button_cancel_contact.setOnClickListener(new View.OnClickListener() {
